@@ -1,0 +1,27 @@
+{% extends 'core/page.html' %}
+
+{% block content %}
+  <form method="post">
+    {% csrf_token %}
+
+    <div class="field">
+      <label class="label">Benutzername</label>
+      <div class="control">
+        <input class="input" type="text" name="username">
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label">Kennwort</label>
+      <div class="control">
+        <input class="input" type="password" name="password">
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="control">
+        <button class="button is-primary">Anmelden</button>
+      </div>
+    </div>
+  </form>
+{% endblock %}
