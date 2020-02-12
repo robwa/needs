@@ -3,9 +3,16 @@
 {% block content %}
   <a href="{% url 'create-need' %}" class="button is-pulled-right">Dein Bedürfnis hinzufügen</a>
   <h1 class="title">Bedürfnisse</h1>
-  <ul>
-    {% for need in object_list %}
-      <li>{{ need.title }}</li>
-    {% endfor %}
-  </ul>
+
+  {% for need in object_list %}
+    <a href="{% url 'show-need' need.pk %}">
+      <div class="card">
+        <div class="card-content">
+          <p class="is-pulled-right">{{ need.creation_time|date }}, {{ need.creation_time|time }}</p>
+          <h4 class="title is-4">{{ need.title }}</h4>
+          <p>{{ need.description }}</p>
+        </div>
+      </div>
+    </a>
+  {% endfor %}
 {% endblock %}

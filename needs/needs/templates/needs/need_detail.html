@@ -1,0 +1,9 @@
+{% extends 'core/page.html' %}
+
+{% block content %}
+  <h1 class="title">Bedürfnis '{{ need.title }}'</h1>
+
+  <p class="subtitle is-6"><em>geäußert am {{ need.creation_time|date }} um {{ need.creation_time|time }} Uhr</em></p>
+
+  <p>{{ need.description }}</p>
+{% endblock %}

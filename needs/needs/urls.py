@@ -1,8 +1,9 @@
-from django.conf.urls import url
+from django.urls import path
 
-from needs.needs.views import NeedCreateView, NeedListView
+from needs.needs.views import NeedCreateView, NeedDetailView, NeedListView
 
 urlpatterns = [
-    url(r'^$', NeedListView.as_view(), name='list-needs'),
-    url(r'^add/$', NeedCreateView.as_view(), name='create-need'),
+    path('', NeedListView.as_view(), name='list-needs'),
+    path('add/', NeedCreateView.as_view(), name='create-need'),
+    path('<pk>/', NeedDetailView.as_view(), name='show-need'),
 ]
