@@ -1,9 +1,31 @@
 {% extends 'core/page.html' %}
 
-{% block content %}
-  <h1 class="title">Bedürfnis '{{ need.title }}'</h1>
+{% block sections %}
+  <section class="section">
+    <div class="container">
+      <h1 class="title">Bedürfnis '{{ need.title }}'</h1>
 
-  <p class="subtitle is-6"><em>geäußert am {{ need.creation_time|date }} um {{ need.creation_time|time }} Uhr</em></p>
+      <p class="subtitle is-6"><em>geäußert am {{ need.creation_time|date }} um {{ need.creation_time|time }} Uhr</em></p>
 
-  <p>{{ need.description }}</p>
+      <p>{{ need.description }}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <a href="{#{% url 'create-need' %}#}" class="button is-pulled-right">Mittel vorschlagen</a>
+      <h2 class="title is-4">Vorgeschlagene Mittel</h2>
+
+      <p>Es wurde bisher kein Mittel vorgeschlagen, welches dieses Bedürfnis befriedigen könnte.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <a href="{#{% url 'create-need' %}#}" class="button is-pulled-right">Muster vorschlagen</a>
+      <h2 class="title is-4">Vorgeschlagene Muster</h2>
+
+      <p>Es wurde bisher kein Muster vorgeschlagen, welches dieses Bedürfnis befriedigen könnte.</p>
+    </div>
+  </section>
 {% endblock %}
