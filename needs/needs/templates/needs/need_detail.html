@@ -13,10 +13,17 @@
 
   <section class="section">
     <div class="container">
-      <a href="{#{% url 'create-need' %}#}" class="button is-pulled-right">Mittel vorschlagen</a>
+      <a href="{% url 'propose-means' need.pk %}" class="button is-pulled-right">Mittel vorschlagen</a>
       <h2 class="title is-4">Vorgeschlagene Mittel</h2>
 
-      <p>Es wurde bisher kein Mittel vorgeschlagen, welches dieses Bedürfnis befriedigen könnte.</p>
+      {% for means in need.proposed_means.all %}
+        <div class="box">
+          <h4 class="title is-4">{{ means.title }}</h4>
+          <p>{{ means.description }}</p>
+        </div>
+      {% empty %}
+        <p>Es wurde bisher kein Mittel vorgeschlagen, welches dieses Bedürfnis befriedigen könnte.</p>
+      {% endfor %}
     </div>
   </section>
 

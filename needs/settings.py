@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'needs.accounts',
     'needs.core',
+    'needs.means',
     'needs.needs',
 ]
 

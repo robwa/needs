@@ -1,0 +1,30 @@
+{% extends 'core/page.html' %}
+
+{% block content %}
+  <h1 class="title">Mittel vorschlagen</h1>
+
+  <form method="post">
+    {% csrf_token %}
+
+    <div class="field is-grouped">
+      <div class="control">
+        <div class="select">
+          <select name="{{ form.means.name }}">
+            {% for choice in form.means.field.choices %}
+              <option value="{{ choice.0 }}">{{ choice.1 }}</option>
+            {% endfor %}
+          </select>
+        </div>
+      </div>
+      <div class="control">
+        <a href="#" class="button">Mittel hinzufügen</a>
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="control">
+        <button class="button is-primary">Mittel vorschlagen</button>
+      </div>
+    </div>
+  </form>
+{% endblock %}

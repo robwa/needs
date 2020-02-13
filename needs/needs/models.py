@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 
 class Need(models.Model):
@@ -6,3 +7,7 @@ class Need(models.Model):
     description = models.TextField()
     creation_time = models.DateTimeField(auto_now_add=True)
     creator = models.ForeignKey('accounts.Profile', on_delete=models.CASCADE)
+    proposed_means = models.ManyToManyField('means.Means')
+
+    def get_absolute_url(self):
+        return reverse('show-need', args=(self.pk,))

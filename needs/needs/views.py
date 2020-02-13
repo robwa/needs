@@ -1,6 +1,7 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views.generic import CreateView, DetailView, ListView
+from django.views.generic import CreateView, DetailView, ListView, UpdateView
 
+from needs.needs.forms import NeedProposeMeansForm
 from needs.needs.models import Need
 
 
@@ -21,3 +22,9 @@ class NeedDetailView(DetailView):
 
 class NeedListView(ListView):
     model = Need
+
+
+class NeedProposeMeansView(UpdateView):
+    model = Need
+    form_class = NeedProposeMeansForm
+    template_name = 'needs/need_propose_means.html'
