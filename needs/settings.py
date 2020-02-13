@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'needs.core',
     'needs.means',
     'needs.needs',
+    'needs.patterns',
 ]
 
 MIDDLEWARE = [

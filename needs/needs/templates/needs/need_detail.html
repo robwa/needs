@@ -29,10 +29,17 @@
 
   <section class="section">
     <div class="container">
-      <a href="{#{% url 'create-need' %}#}" class="button is-pulled-right">Muster vorschlagen</a>
+      <a href="{% url 'propose-pattern' need.pk %}" class="button is-pulled-right">Muster vorschlagen</a>
       <h2 class="title is-4">Vorgeschlagene Muster</h2>
 
-      <p>Es wurde bisher kein Muster vorgeschlagen, welches dieses Bedürfnis befriedigen könnte.</p>
+      {% for pattern in need.proposed_patterns.all %}
+        <div class="box">
+          <h4 class="title is-4">{{ pattern.title }}</h4>
+          <p>{{ pattern.description }}</p>
+        </div>
+      {% empty %}
+        <p>Es wurde bisher kein Muster vorgeschlagen, welches dieses Bedürfnis befriedigen könnte.</p>
+      {% endfor %}
     </div>
   </section>
 {% endblock %}
