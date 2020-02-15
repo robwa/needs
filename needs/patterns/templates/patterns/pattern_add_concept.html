@@ -1,7 +1,7 @@
 {% extends 'core/page.html' %}
 
 {% block content %}
-  <h1 class="title">Muster vorschlagen</h1>
+  <h1 class="title">Bedarf hinzufügen</h1>
 
   <form method="post">
     {% csrf_token %}
@@ -9,21 +9,21 @@
     <div class="field is-grouped">
       <div class="control">
         <div class="select">
-          <select name="{{ form.pattern.name }}">
-            {% for choice in form.pattern.field.choices %}
+          <select name="{{ form.concept.name }}">
+            {% for choice in form.concept.field.choices %}
               <option value="{{ choice.0 }}">{{ choice.1 }}</option>
             {% endfor %}
           </select>
         </div>
       </div>
       <div class="control">
-        <a href="{% url 'create-pattern' %}" class="button">Muster hinzufügen</a>
+        <a href="{% url 'create-concept' %}" class="button">Konzept hinzufügen</a>
       </div>
     </div>
 
     <div class="field">
       <div class="control">
-        <button class="button is-primary">Muster vorschlagen</button>
+        <button class="button is-primary">Bedarf hinzufügen</button>
       </div>
     </div>
   </form>

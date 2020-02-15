@@ -1,0 +1,27 @@
+{% extends 'core/page.html' %}
+
+{% block sections %}
+  <section class="section">
+    <div class="container">
+      <h1 class="title">Muster '{{ pattern.title }}'</h1>
+
+      <p>{{ pattern.description }}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <a href="{% url 'add-concept-to-pattern' pattern.pk %}" class="button is-pulled-right">Bedarf hinzufügen</a>
+      <h2 class="title is-4">Bedarfe</h2>
+
+      {% for concept in pattern.required_concepts.all %}
+        <div class="box">
+          <h4 class="title is-4">{{ concept.title }}</h4>
+          <p>{{ concept.description }}</p>
+        </div>
+      {% empty %}
+        <p>Dieses Muster erzeugt keine weiteren Bedarfe.</p>
+      {% endfor %}
+    </div>
+  </section>
+{% endblock %}
