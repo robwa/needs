@@ -41,10 +41,7 @@
       <h2 class="title is-4">Vorgeschlagene Tätigkeiten</h2>
 
       {% for activity in need.proposed_activities.all %}
-        <a href="{% url 'show-activity' activity.pk %}" class="box">
-          <h4 class="title is-4">{{ activity.pattern.title }}</h4>
-          <p>{{ activity.pattern.description }}</p>
-        </a>
+        {% include 'activities/_activity.html' %}
       {% empty %}
         <p>Es wurde bisher keine Tätigkeit vorgeschlagen, welche dieses Bedürfnis befriedigen könnte.</p>
       {% endfor %}

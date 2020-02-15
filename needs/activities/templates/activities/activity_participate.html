@@ -1,0 +1,15 @@
+{% extends 'core/page.html' %}
+
+{% block content %}
+  <h1 class="title">Durchführen / Mitwirken</h1>
+
+  <form method="post">
+    {% csrf_token %}
+
+    <div class="field">
+      <div class="control">
+        <button class="button is-primary">Durchführen / Mitwirken</button>
+      </div>
+    </div>
+  </form>
+{% endblock %}

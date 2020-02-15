@@ -1,0 +1,6 @@
+<a href="{% url 'show-activity' activity.pk %}" class="box">
+  <p class="is-pulled-right"><em>{{ activity.creation_time|date }}, {{ activity.creation_time|time }}</em></p>
+  <h4 class="title is-4">{{ activity.pattern.title }}</h4>
+  <p class="is-pulled-right"><em>{{ activity.participants.count }} Durchführende</em></p>
+  <p>{{ activity.pattern.description }}</p>
+</a>

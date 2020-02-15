@@ -1,0 +1,9 @@
+{% extends 'core/page.html' %}
+
+{% block content %}
+  <h1 class="title">Tätigkeiten</h1>
+
+  {% for activity in object_list %}
+    {% include 'activities/_activity.html' %}
+  {% endfor %}
+{% endblock %}

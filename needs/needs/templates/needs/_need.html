@@ -1,0 +1,6 @@
+<a href="{% url 'show-need' need.pk %}" class="box">
+  <p class="is-pulled-right"><em>{{ need.creation_time|date }}, {{ need.creation_time|time }}</em></p>
+  <h4 class="title is-4">{{ need.title }}</h4>
+  <p class="is-pulled-right"><em>{{ need.proposed_means.count }} Mittel, {{ need.proposed_activities.count }} Tätigkeiten vorgeschlagen</em></p>
+  <p>{{ need.description }}</p>
+</a>

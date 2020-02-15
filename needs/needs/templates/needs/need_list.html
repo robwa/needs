@@ -1,14 +1,10 @@
 {% extends 'core/page.html' %}
 
 {% block content %}
-  <a href="{% url 'create-need' %}" class="button is-pulled-right">Dein Bedürfnis hinzufügen</a>
+  <a href="{% url 'create-need' %}" class="button is-primary is-pulled-right">Dein Bedürfnis hinzufügen</a>
   <h1 class="title">Bedürfnisse</h1>
 
   {% for need in object_list %}
-    <a href="{% url 'show-need' need.pk %}" class="box">
-        <p class="is-pulled-right">{{ need.creation_time|date }}, {{ need.creation_time|time }}</p>
-        <h4 class="title is-4">{{ need.title }}</h4>
-        <p>{{ need.description }}</p>
-    </a>
+    {% include 'needs/_need.html' %}
   {% endfor %}
 {% endblock %}

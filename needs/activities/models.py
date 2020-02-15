@@ -7,6 +7,7 @@ class Activity(models.Model):
     result_need = models.ForeignKey(
             'needs.Need', on_delete=models.CASCADE, related_name='proposed_activities')
     pattern = models.ForeignKey('patterns.Pattern', on_delete=models.PROTECT)
+    participants = models.ManyToManyField('accounts.Profile')
 
-    #def get_absolute_url(self):
-    #    return reverse('show-need', args=(self.pk,))
+    def get_absolute_url(self):
+        return reverse('show-activity', args=(self.pk,))
