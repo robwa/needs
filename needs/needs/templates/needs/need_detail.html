@@ -5,7 +5,15 @@
     <div class="container">
       <h1 class="title">Bedürfnis '{{ need.title }}'</h1>
 
-      <p class="subtitle is-6"><em>geäußert am {{ need.creation_time|date }} um {{ need.creation_time|time }} Uhr</em></p>
+      <p class="subtitle is-6"><em>geäußert am {{ need.creation_time|date }} um
+        {{ need.creation_time|time }} Uhr
+        {% if need.activity %}
+        zur Durchführung der Tätigkeit
+        <a href="{% url 'show-activity' need.activity.pk %}">
+          {{ need.activity.pattern.title }}
+        </a>
+        {% endif %}
+      </em></p>
 
       <p>{{ need.description }}</p>
     </div>
@@ -29,16 +37,16 @@
 
   <section class="section">
     <div class="container">
-      <a href="{% url 'propose-pattern' need.pk %}" class="button is-pulled-right">Muster vorschlagen</a>
-      <h2 class="title is-4">Vorgeschlagene Muster</h2>
+      <a href="{% url 'create-activity' need.pk %}" class="button is-pulled-right">Tätigkeit vorschlagen</a>
+      <h2 class="title is-4">Vorgeschlagene Tätigkeiten</h2>
 
-      {% for pattern in need.proposed_patterns.all %}
-        <div class="box">
-          <h4 class="title is-4">{{ pattern.title }}</h4>
-          <p>{{ pattern.description }}</p>
-        </div>
+      {% for activity in need.proposed_activities.all %}
+        <a href="{% url 'show-activity' activity.pk %}" class="box">
+          <h4 class="title is-4">{{ activity.pattern.title }}</h4>
+          <p>{{ activity.pattern.description }}</p>
+        </a>
       {% empty %}
-        <p>Es wurde bisher kein Muster vorgeschlagen, welches dieses Bedürfnis befriedigen könnte.</p>
+        <p>Es wurde bisher keine Tätigkeit vorgeschlagen, welche dieses Bedürfnis befriedigen könnte.</p>
       {% endfor %}
     </div>
   </section>

@@ -28,14 +28,3 @@ class NeedProposeMeansView(UpdateView):
     model = Need
     form_class = NeedProposeMeansForm
     template_name = 'needs/need_propose_means.html'
-
-
-class NeedProposePatternView(UpdateView):
-    model = Need
-    form_class = NeedProposePatternForm
-    template_name = 'needs/need_propose_pattern.html'
-
-    def form_valid(self, form):
-        response = super().form_valid(form)
-        Need.objects.create_from_pattern(form.cleaned_data['pattern'])
-        return response

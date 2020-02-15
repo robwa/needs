@@ -10,7 +10,7 @@
   <body>
   <nav class="navbar" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
-      <a class="navbar-item" href="{% url 'list-needs' %}">
+      <a class="navbar-item" href="#">
         {% load staticfiles %}
         <img src="{% static 'logo.png' %}" width="119" height="28">
       </a>
@@ -26,6 +26,10 @@
       <div class="navbar-start">
         <a class="navbar-item" href="{% url 'list-needs' %}">
           Bedürfnisse
+        </a>
+
+        <a class="navbar-item" href="{% url 'list-activities' %}">
+          Tätigkeiten
         </a>
 
         <div class="navbar-item has-dropdown is-hoverable">

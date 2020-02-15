@@ -1,0 +1,33 @@
+{% extends 'core/page.html' %}
+
+{% block sections %}
+  <section class="section">
+    <div class="container">
+      <h1 class="title">Tätigkeit '{{ activity.pattern.title }}'</h1>
+
+      <p class="subtitle is-6"><em>vorgeschlagen am {{ activity.creation_time|date }} um
+        {{ activity.creation_time|time }} Uhr zur Befriedigung des Bedürfnisses
+        <a href="{% url 'show-need' activity.result_need.pk %}">
+          {{ activity.result_need.title }}
+        </a>
+      </em></p>
+
+      <p>{{ activity.pattern.description }}</p>
+    </div>
+  </section>
+
+  {% if activity.required_needs.exists %}
+    <section class="section">
+      <div class="container">
+        <h2 class="title is-4">Bedürfnisse</h2>
+
+        {% for need in activity.required_needs.all %}
+          <a href="{% url 'show-need' need.pk %}" class="box">
+            <h4 class="title is-4">{{ need.title }}</h4>
+            <p>{{ need.description }}</p>
+          </a>
+        {% endfor %}
+      </div>
+    </section>
+  {% endif %}
+{% endblock %}
