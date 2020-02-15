@@ -14,16 +14,20 @@
     <div class="field">
       <label class="label">Kennwort</label>
       <div class="control">
-        <input class="input" type="password" name="password">
+        <input class="input" type="password" name="password1">
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label">Kennwort wiederholen</label>
+      <div class="control">
+        <input class="input" type="password" name="password2">
       </div>
     </div>
 
     <div class="field is-grouped">
       <div class="control">
-        <button class="button is-primary">Anmelden</button>
-      </div>
-      <div class="control">
-        <a href="{% url 'signup' %}" class="button">Registrieren</a>
+        <button class="button is-primary">Registrieren</button>
       </div>
     </div>
   </form>
