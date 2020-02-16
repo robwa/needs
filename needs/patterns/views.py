@@ -9,10 +9,16 @@ class PatternAddConceptView(UpdateView):
     form_class = PatternAddConceptForm
     template_name = 'patterns/pattern_add_concept.html'
 
+    def get_success_url(self):
+        return '{}?next={}'.format(super().get_success_url(), self.request.GET.get('next') or '')
+
 
 class PatternCreateView(CreateView):
     model = Pattern
     fields = ('title', 'description')
+
+    def get_success_url(self):
+        return '{}?next={}'.format(super().get_success_url(), self.request.GET.get('next') or '')
 
 
 class PatternDetailView(DetailView):

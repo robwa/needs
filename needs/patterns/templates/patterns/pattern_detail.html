@@ -3,6 +3,9 @@
 {% block sections %}
   <section class="section">
     <div class="container">
+      {% if request.GET.next %}
+        <a href="{{ request.GET.next }}" class="button is-pulled-right">Musterbearbeitung beenden</a>
+      {% endif %}
       <h1 class="title">Muster '{{ pattern.title }}'</h1>
 
       <p>{{ pattern.description }}</p>
@@ -11,7 +14,7 @@
 
   <section class="section">
     <div class="container">
-      <a href="{% url 'add-concept-to-pattern' pattern.pk %}" class="button is-pulled-right">Bedarf hinzufügen</a>
+      <a href="{% url 'add-concept-to-pattern' pattern.pk %}?next={{ request.GET.next|urlencode }}" class="button is-pulled-right">Bedarf hinzufügen</a>
       <h2 class="title is-4">Bedarfe</h2>
 
       {% for concept in pattern.required_concepts.all %}

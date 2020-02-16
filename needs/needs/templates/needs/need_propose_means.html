@@ -17,7 +17,7 @@
         </div>
       </div>
       <div class="control">
-        <a href="#" class="button">Mittel hinzufügen</a>
+        <a href="{% url 'create-means' %}?next={{ request.path|urlencode }}" class="button">Mittel hinzufügen</a>
       </div>
     </div>
 

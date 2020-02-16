@@ -6,6 +6,7 @@ urlpatterns = [
     path('activities/', include('needs.activities.urls')),
     path('admin/', admin.site.urls),
     path('concepts/', include('needs.concepts.urls')),
+    path('means/', include('needs.means.urls')),
     path('needs/', include('needs.needs.urls')),
     path('patterns/', include('needs.patterns.urls')),
 ]

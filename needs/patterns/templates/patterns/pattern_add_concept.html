@@ -17,7 +17,7 @@
         </div>
       </div>
       <div class="control">
-        <a href="{% url 'create-concept' %}" class="button">Konzept hinzufügen</a>
+        <a href="{% url 'create-concept' %}?next={{ request.get_full_path|urlencode }}" class="button">Konzept hinzufügen</a>
       </div>
     </div>
 

@@ -1,10 +1,10 @@
 from django.views.generic import CreateView
 
-from needs.concepts.models import Concept
+from needs.means.models import Means
 
 
-class ConceptCreateView(CreateView):
-    model = Concept
+class MeansCreateView(CreateView):
+    model = Means
     fields = ('title', 'description')
 
     def get_success_url(self):

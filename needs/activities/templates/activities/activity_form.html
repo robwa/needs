@@ -17,7 +17,7 @@
         </div>
       </div>
       <div class="control">
-        <a href="{% url 'create-pattern' %}" class="button">Muster hinzufügen</a>
+        <a href="{% url 'create-pattern' %}?next={{ request.path|urlencode }}" class="button">Muster hinzufügen</a>
       </div>
     </div>
 
