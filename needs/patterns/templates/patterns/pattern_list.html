@@ -1,0 +1,13 @@
+{% extends 'core/page.html' %}
+
+{% block content %}
+  <a href="{% url 'create-pattern' %}" class="button is-pulled-right">Muster hinzufügen</a>
+  <h1 class="title">Muster</h1>
+
+  {% for pattern in object_list %}
+    <a href="{% url 'show-pattern' pattern.pk %}" class="box">
+      <h4 class="title is-4">{{ pattern.title }}</h4>
+      <p>{{ pattern.description }}</p>
+    </a>
+  {% endfor %}
+{% endblock %}

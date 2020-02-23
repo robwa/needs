@@ -1,4 +1,4 @@
-from django.views.generic import CreateView, DetailView, UpdateView
+from django.views.generic import CreateView, DetailView, ListView, UpdateView
 
 from needs.patterns.forms import PatternAddConceptForm
 from needs.patterns.models import Pattern
@@ -22,4 +22,8 @@ class PatternCreateView(CreateView):
 
 
 class PatternDetailView(DetailView):
+    model = Pattern
+
+
+class PatternListView(ListView):
     model = Pattern
